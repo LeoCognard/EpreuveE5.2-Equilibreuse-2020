@@ -8,6 +8,8 @@ WidgetUSB202::WidgetUSB202(QWidget *parent)
 {
     ui->setupUi(this);
     laCarte.ulDConfigPort(DD_OUTPUT);
+    connect(&leTimer,&QTimer::timeout,this,&WidgetUSB202::clignoter);
+
 }
 
 WidgetUSB202::~WidgetUSB202()
@@ -81,6 +83,11 @@ void WidgetUSB202::on_checkBoxDIO7_stateChanged(int arg1)
 }
 
 void WidgetUSB202::on_pushButtonClignoter_clicked()
+{
+    leTimer.start(1000);
+}
+
+void WidgetUSB202::clignoter()
 {
     if(ui->checkBoxDIO0->checkState()==Qt::Checked){
         ui->checkBoxDIO0->setCheckState(Qt::Unchecked);

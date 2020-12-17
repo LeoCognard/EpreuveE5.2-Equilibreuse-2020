@@ -36,6 +36,8 @@ private slots:
 
     void on_pushButtonClignoter_clicked();
 
+    void clignoter();
+
 private:
     Ui::WidgetUSB202 *ui;
     MccUldaq laCarte;
